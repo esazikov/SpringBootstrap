@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>PreProject Spring Bootstrap</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <h5>
+            <a class="navbar-text text-white font-weight-bold" th:text="${principal.username}">Username</a>
+            <a class="navbar-text text-white" th:text=" ' with roles : ' + ${principal.roles}">Roles</a>
+            </a>
+        </h5>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn btn-link btn-xs">
+                <p class="text-muted">Logout</p>
+            </button>
+        </form>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#user">User</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10 bg-light">
+                <div class="tab-content">
+                    <div class="pab-pane fade show active" id="user">
+                        <h1>User panel</h1>
+                        <div class="card-header">
+                            <h5 class="card-title">About user</h5>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Second name</th>
+                                    <th>Age</th>
+                                    <th>Username</th>
+                                    <th>Role</th>
+                                </tr>
+                                <tr>
+                                    <td th:text="${principal.id}"></td>
+                                    <td th:text="${principal.name}"></td>
+                                    <td th:text="${principal.lastname}"></td>
+                                    <td th:text="${principal.age}"></td>
+                                    <td th:text="${principal.username}"></td>
+                                    <td th:text="${principal.roles}"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</body>
+</html>
